@@ -27,7 +27,7 @@ body {
 
 #lessons {
   padding-left: 600px;
-  padding-top: 120px;
+  padding-top: 200px;
 }
 
 .details {
@@ -36,4 +36,8 @@ body {
   border: 15px solid green;
   padding: 50px;
   margin: 20px;
+}
+
+#logo {
+  padding-left: 500px;
 }

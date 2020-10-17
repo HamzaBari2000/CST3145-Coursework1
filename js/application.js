@@ -1,9 +1,19 @@
 //Store Data to the Local Storage
 let getLessonsData = JSON.parse(localStorage.getItem("Lessons"));
 
+let navbar = new Vue({
+    el: '.navbar',
+    data: {
+        logoImage: 'img/Logo.png',
+        btnTitle: 'Cart',
+        lessonURL: 'index.html',
+        cart: 'cart.html', 
+    }
+})
+
 let displayLessons = new Vue({
     el: '#lessons',
-    data: {
+    data: { 
       lessons: [
         {
             SubjectName: getLessonsData[0].SubjectName,
@@ -87,11 +97,19 @@ let displayLessons = new Vue({
         },
 	  ]
     },
+    mounted() { //When the Webpage loads up the cart button should be hidden. 
+        document.getElementById("btnCart").style.visibility = "hidden";
+    },
     methods: {
         reduce: function (index) {
-            
-        this.lessons[index].Space--;
         
+        //Reduce the number of spaces as the user clicks on the add to cart button.    
+        this.lessons[index].Space--;
+            
+        /* When the user clicks the cart button it will add the lesson to the cart page and also when the button is clicked 
+        Therefore to go to the cart page is where the button will become visible. */
+        document.getElementById("btnCart").style.visibility = "visible";
+            
         if (this.lessons[0].Space == 0) {
             document.getElementById("addToCart0").style.visibility = "hidden";
         }
