@@ -24,7 +24,7 @@
 
     <div class="navbar">
         <img v-bind:src="logoImage" alt="Logo" id="logo">
-        <button v-bind:href="lessonURL" id="btnLessons">Lessons</button>
+        <button id="btnLessons" v-on:click="goToLessons()">Lessons</button>
     </div>
 
 

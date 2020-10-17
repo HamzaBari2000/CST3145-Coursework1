@@ -6,8 +6,17 @@ let navbar = new Vue({
     data: {
         logoImage: 'img/Logo.png',
         btnTitle: 'Cart',
+        btnLessonsTitle: 'Lessons',
         lessonURL: 'index.html',
         cart: 'cart.html', 
+    },
+    methods: {
+        goToCart: function () {
+            window.location.href = "cart.html";
+        },
+        goToLessons: function () {
+            window.location.href = "index.html";
+        }
     }
 })
 
@@ -101,7 +110,7 @@ let displayLessons = new Vue({
         document.getElementById("btnCart").style.visibility = "hidden";
     },
     methods: {
-        reduce: function (index) {
+        addToCart: function (index) {
         
         //Reduce the number of spaces as the user clicks on the add to cart button.    
         this.lessons[index].Space--;

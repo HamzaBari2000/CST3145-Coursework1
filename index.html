@@ -22,7 +22,7 @@
 
     <div class="navbar">
         <img v-bind:src="logoImage" alt="Logo" id="logo">
-        <button id="btnCart">{{ btnTitle }}</button>
+        <button id="btnCart" v-on:click="goToCart()">{{ btnTitle }}</button>
     </div>
 
 
@@ -36,7 +36,7 @@
                 <img v-bind:src="lesson.Image" height="60px" width="60px">
                 <br>
                 <br>
-                <button v-bind:id="lesson.ButtonID" v-on:click="reduce(index)">Add To Cart</button>
+                <button v-bind:id="lesson.ButtonID" v-on:click="addToCart(index)">Add To Cart</button>
             </div>
             <br>
             <br>
