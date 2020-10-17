@@ -23,10 +23,11 @@ let navbar = new Vue({
 let displayLessons = new Vue({
     el: '#lessons',
     data: { 
+      addCart: [],
       lessons: [
         {
             SubjectName: getLessonsData[0].SubjectName,
-            Location: getLessonsData[0].location,
+            Location: getLessonsData[0].Location,
             Price: getLessonsData[0].Price,
             Space: getLessonsData[0].Space,
             Image: getLessonsData[0].Image,
@@ -34,7 +35,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[1].SubjectName,
-            Location: getLessonsData[1].location,
+            Location: getLessonsData[1].Location,
             Price: getLessonsData[1].Price,
             Space: getLessonsData[1].Space,
             Image: getLessonsData[1].Image,
@@ -42,7 +43,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[2].SubjectName,
-            Location: getLessonsData[2].location,
+            Location: getLessonsData[2].Location,
             Price: getLessonsData[2].Price,
             Space: getLessonsData[2].Space,
             Image: getLessonsData[2].Image,
@@ -50,7 +51,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[3].SubjectName,
-            Location: getLessonsData[3].location,
+            Location: getLessonsData[3].Location,
             Price: getLessonsData[3].Price,
             Space: getLessonsData[3].Space,
             Image: getLessonsData[3].Image,
@@ -58,7 +59,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[4].SubjectName,
-            Location: getLessonsData[4].location,
+            Location: getLessonsData[4].Location,
             Price: getLessonsData[4].Price,
             Space: getLessonsData[4].Space,
             Image: getLessonsData[4].Image,
@@ -66,7 +67,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[5].SubjectName,
-            Location: getLessonsData[5].location,
+            Location: getLessonsData[5].Location,
             Price: getLessonsData[5].Price,
             Space: getLessonsData[5].Space,
             Image: getLessonsData[5].Image,
@@ -74,7 +75,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[6].SubjectName,
-            Location: getLessonsData[6].location,
+            Location: getLessonsData[6].Location,
             Price: getLessonsData[6].Price,
             Space: getLessonsData[6].Space,
             Image: getLessonsData[6].Image,
@@ -82,7 +83,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[7].SubjectName,
-            Location: getLessonsData[7].location,
+            Location: getLessonsData[7].Location,
             Price: getLessonsData[7].Price,
             Space: getLessonsData[7].Space,
             Image: getLessonsData[7].Image,
@@ -90,7 +91,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[8].SubjectName,
-            Location: getLessonsData[8].location,
+            Location: getLessonsData[8].Location,
             Price: getLessonsData[8].Price,
             Space: getLessonsData[8].Space,
             Image: getLessonsData[8].Image,
@@ -98,7 +99,7 @@ let displayLessons = new Vue({
         },
         {
             SubjectName: getLessonsData[9].SubjectName,
-            Location: getLessonsData[9].location,
+            Location: getLessonsData[9].Location,
             Price: getLessonsData[9].Price,
             Space: getLessonsData[9].Space,
             Image: getLessonsData[9].Image,
@@ -112,42 +113,47 @@ let displayLessons = new Vue({
     methods: {
         addToCart: function (index) {
         
-        //Reduce the number of spaces as the user clicks on the add to cart button.    
-        this.lessons[index].Space--;
-            
-        /* When the user clicks the cart button it will add the lesson to the cart page and also when the button is clicked 
-        Therefore to go to the cart page is where the button will become visible. */
-        document.getElementById("btnCart").style.visibility = "visible";
-            
-        if (this.lessons[0].Space == 0) {
-            document.getElementById("addToCart0").style.visibility = "hidden";
+            let cart = this.addCart;
+
+            console.log(this.lessons[0]);
+
+            //Reduce the number of spaces as the user clicks on the add to cart button.    
+            this.lessons[index].Space--;
+                
+            /* When the user clicks the cart button it will add the lesson to the cart page and also when the button is clicked 
+            Therefore to go to the cart page is where the button will become visible. */
+            document.getElementById("btnCart").style.visibility = "visible";
+                
+            if (this.lessons[0].Space == 0) {
+                document.getElementById("addToCart0").style.visibility = "hidden";
+            }
+            if (this.lessons[1].Space == 0) {
+                document.getElementById("addToCart1").style.visibility = "hidden";
+            }
+            if (this.lessons[2].Space == 0) {
+                document.getElementById("addToCart2").style.visibility = "hidden";
+            }
+            if (this.lessons[3].Space == 0) {
+                document.getElementById("addToCart3").style.visibility = "hidden";
+            }
+            if (this.lessons[4].Space == 0) {
+                document.getElementById("addToCart4").style.visibility = "hidden";
+            }
+            if (this.lessons[5].Space == 0) {
+                document.getElementById("addToCart5").style.visibility = "hidden";
+            }
+            if (this.lessons[6].Space == 0) {
+                document.getElementById("addToCart6").style.visibility = "hidden";
+            }
+            if (this.lessons[7].Space == 0) {
+                document.getElementById("addToCart7").style.visibility = "hidden";
+            }
+            if (this.lessons[8].Space == 0) {
+                document.getElementById("addToCart8").style.visibility = "hidden";
+            }
+            if (this.lessons[9].Space == 0) {
+                document.getElementById("addToCart9").style.visibility = "hidden";
+            }
         }
-        if (this.lessons[1].Space == 0) {
-            document.getElementById("addToCart1").style.visibility = "hidden";
-        }
-        if (this.lessons[2].Space == 0) {
-            document.getElementById("addToCart2").style.visibility = "hidden";
-        }
-        if (this.lessons[3].Space == 0) {
-            document.getElementById("addToCart3").style.visibility = "hidden";
-        }
-        if (this.lessons[4].Space == 0) {
-            document.getElementById("addToCart4").style.visibility = "hidden";
-        }
-        if (this.lessons[5].Space == 0) {
-            document.getElementById("addToCart5").style.visibility = "hidden";
-        }
-        if (this.lessons[6].Space == 0) {
-            document.getElementById("addToCart6").style.visibility = "hidden";
-        }
-        if (this.lessons[7].Space == 0) {
-            document.getElementById("addToCart7").style.visibility = "hidden";
-        }
-        if (this.lessons[8].Space == 0) {
-            document.getElementById("addToCart8").style.visibility = "hidden";
-        }
-        if (this.lessons[9].Space == 0) {
-            document.getElementById("addToCart9").style.visibility = "hidden";
-        }
-    }
-}});
+    }    
+});

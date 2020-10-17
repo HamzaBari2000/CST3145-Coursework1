@@ -30,7 +30,7 @@
         <div v-for="(lesson, index) in lessons">
             <div class="details">
                 <h1>{{ lesson.SubjectName }}</h1>
-                <h2>{{ lesson.location }}</h2>
+                <p>Location: {{ lesson.Location }}</p>
                 <h3>£{{ lesson.Price }}</h3>
                 <h4>Spaces left: {{ lesson.Space }}</h4>
                 <img v-bind:src="lesson.Image" height="60px" width="60px">
