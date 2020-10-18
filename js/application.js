@@ -109,13 +109,11 @@ let displayLessons = new Vue({
     },
     mounted() { //When the Webpage loads up the cart button should be hidden. 
         document.getElementById("btnCart").style.visibility = "hidden";
+        document.getElementById("addToCart0").addEventListener("click", this.addMaths); 
+        document.getElementById("addToCart1").addEventListener("click", this.addEnglish); 
     },
     methods: {
         addToCart: function (index) {
-        
-            let cart = this.addCart;
-
-            console.log(this.lessons[0]);
 
             //Reduce the number of spaces as the user clicks on the add to cart button.    
             this.lessons[index].Space--;
@@ -123,13 +121,15 @@ let displayLessons = new Vue({
             /* When the user clicks the cart button it will add the lesson to the cart page and also when the button is clicked 
             Therefore to go to the cart page is where the button will become visible. */
             document.getElementById("btnCart").style.visibility = "visible";
-                
+
             if (this.lessons[0].Space == 0) {
                 document.getElementById("addToCart0").style.visibility = "hidden";
-            }
+            } 
+
             if (this.lessons[1].Space == 0) {
                 document.getElementById("addToCart1").style.visibility = "hidden";
-            }
+            } 
+
             if (this.lessons[2].Space == 0) {
                 document.getElementById("addToCart2").style.visibility = "hidden";
             }
@@ -154,6 +154,16 @@ let displayLessons = new Vue({
             if (this.lessons[9].Space == 0) {
                 document.getElementById("addToCart9").style.visibility = "hidden";
             }
-        }
+        },
+        addMaths: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[0]);
+            console.log(cart);
+        },
+        addEnglish: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[1]);
+            console.log(cart);
+        },
     }    
 });
