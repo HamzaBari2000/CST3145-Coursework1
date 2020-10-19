@@ -33,88 +33,88 @@ let displayLessons = new Vue({
     data: { 
         addCart: [],
         buttonTitle: 'Add To Cart',
-      lessons: [
-        {
-            SubjectName: getLessonsData[0].SubjectName,
-            Location: getLessonsData[0].Location,
-            Price: getLessonsData[0].Price,
-            Space: getLessonsData[0].Space,
-            Image: getLessonsData[0].Image,
-            ButtonID: 'addToCart0'
-        },
-        {
-            SubjectName: getLessonsData[1].SubjectName,
-            Location: getLessonsData[1].Location,
-            Price: getLessonsData[1].Price,
-            Space: getLessonsData[1].Space,
-            Image: getLessonsData[1].Image,
-            ButtonID: 'addToCart1'
-        },
-        {
-            SubjectName: getLessonsData[2].SubjectName,
-            Location: getLessonsData[2].Location,
-            Price: getLessonsData[2].Price,
-            Space: getLessonsData[2].Space,
-            Image: getLessonsData[2].Image,
-            ButtonID: 'addToCart2'
-        },
-        {
-            SubjectName: getLessonsData[3].SubjectName,
-            Location: getLessonsData[3].Location,
-            Price: getLessonsData[3].Price,
-            Space: getLessonsData[3].Space,
-            Image: getLessonsData[3].Image,
-            ButtonID: 'addToCart3'
-        },
-        {
-            SubjectName: getLessonsData[4].SubjectName,
-            Location: getLessonsData[4].Location,
-            Price: getLessonsData[4].Price,
-            Space: getLessonsData[4].Space,
-            Image: getLessonsData[4].Image,
-            ButtonID: 'addToCart4'
-        },
-        {
-            SubjectName: getLessonsData[5].SubjectName,
-            Location: getLessonsData[5].Location,
-            Price: getLessonsData[5].Price,
-            Space: getLessonsData[5].Space,
-            Image: getLessonsData[5].Image,
-            ButtonID: 'addToCart5'
-        },
-        {
-            SubjectName: getLessonsData[6].SubjectName,
-            Location: getLessonsData[6].Location,
-            Price: getLessonsData[6].Price,
-            Space: getLessonsData[6].Space,
-            Image: getLessonsData[6].Image,
-            ButtonID: 'addToCart6'
-        },
-        {
-            SubjectName: getLessonsData[7].SubjectName,
-            Location: getLessonsData[7].Location,
-            Price: getLessonsData[7].Price,
-            Space: getLessonsData[7].Space,
-            Image: getLessonsData[7].Image,
-            ButtonID: 'addToCart7'
-        },
-        {
-            SubjectName: getLessonsData[8].SubjectName,
-            Location: getLessonsData[8].Location,
-            Price: getLessonsData[8].Price,
-            Space: getLessonsData[8].Space,
-            Image: getLessonsData[8].Image,
-            ButtonID: 'addToCart8'
-        },
-        {
-            SubjectName: getLessonsData[9].SubjectName,
-            Location: getLessonsData[9].Location,
-            Price: getLessonsData[9].Price,
-            Space: getLessonsData[9].Space,
-            Image: getLessonsData[9].Image,
-            ButtonID: 'addToCart9'
-        },
-	  ]
+        lessons: [
+            {
+                SubjectName: getLessonsData[0].SubjectName,
+                Location: getLessonsData[0].Location,
+                Price: getLessonsData[0].Price,
+                Space: getLessonsData[0].Space,
+                Image: getLessonsData[0].Image,
+                ButtonID: 'addToCart0'
+            },
+            {
+                SubjectName: getLessonsData[1].SubjectName,
+                Location: getLessonsData[1].Location,
+                Price: getLessonsData[1].Price,
+                Space: getLessonsData[1].Space,
+                Image: getLessonsData[1].Image,
+                ButtonID: 'addToCart1'
+            },
+            {
+                SubjectName: getLessonsData[2].SubjectName,
+                Location: getLessonsData[2].Location,
+                Price: getLessonsData[2].Price,
+                Space: getLessonsData[2].Space,
+                Image: getLessonsData[2].Image,
+                ButtonID: 'addToCart2'
+            },
+            {
+                SubjectName: getLessonsData[3].SubjectName,
+                Location: getLessonsData[3].Location,
+                Price: getLessonsData[3].Price,
+                Space: getLessonsData[3].Space,
+                Image: getLessonsData[3].Image,
+                ButtonID: 'addToCart3'
+            },
+            {
+                SubjectName: getLessonsData[4].SubjectName,
+                Location: getLessonsData[4].Location,
+                Price: getLessonsData[4].Price,
+                Space: getLessonsData[4].Space,
+                Image: getLessonsData[4].Image,
+                ButtonID: 'addToCart4'
+            },
+            {
+                SubjectName: getLessonsData[5].SubjectName,
+                Location: getLessonsData[5].Location,
+                Price: getLessonsData[5].Price,
+                Space: getLessonsData[5].Space,
+                Image: getLessonsData[5].Image,
+                ButtonID: 'addToCart5'
+            },
+            {
+                SubjectName: getLessonsData[6].SubjectName,
+                Location: getLessonsData[6].Location,
+                Price: getLessonsData[6].Price,
+                Space: getLessonsData[6].Space,
+                Image: getLessonsData[6].Image,
+                ButtonID: 'addToCart6'
+            },
+            {
+                SubjectName: getLessonsData[7].SubjectName,
+                Location: getLessonsData[7].Location,
+                Price: getLessonsData[7].Price,
+                Space: getLessonsData[7].Space,
+                Image: getLessonsData[7].Image,
+                ButtonID: 'addToCart7'
+            },
+            {
+                SubjectName: getLessonsData[8].SubjectName,
+                Location: getLessonsData[8].Location,
+                Price: getLessonsData[8].Price,
+                Space: getLessonsData[8].Space,
+                Image: getLessonsData[8].Image,
+                ButtonID: 'addToCart8'
+            },
+            {
+                SubjectName: getLessonsData[9].SubjectName,
+                Location: getLessonsData[9].Location,
+                Price: getLessonsData[9].Price,
+                Space: getLessonsData[9].Space,
+                Image: getLessonsData[9].Image,
+                ButtonID: 'addToCart9'
+            },
+        ]
     },
     mounted() { //When the Webpage loads up the cart button should be hidden. 
         document.getElementById("btnCart").style.visibility = "hidden";
