@@ -16,7 +16,7 @@
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="css/styles.css">
-    <title>Lessons</title>
+    <title id="header" v-text="indexTitle"></title>
 </head>
 <body>
 
@@ -36,7 +36,7 @@
                 <img v-bind:src="lesson.Image" height="60px" width="60px">
                 <br>
                 <br>
-                <button v-bind:id="lesson.ButtonID" v-on:click="addToCart(index)">Add To Cart</button>
+                <button v-bind:id="lesson.ButtonID" v-on:click="reduceSpace(index)">{{ buttonTitle }}</button>
             </div>
             <br>
             <br>

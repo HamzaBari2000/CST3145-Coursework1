@@ -1,6 +1,14 @@
 //Store Data to the Local Storage
 let getLessonsData = JSON.parse(localStorage.getItem("Lessons"));
 
+let header = new Vue({
+    el: '#header',
+    data: {
+        indexTitle: 'Lessons',
+        cartTitle: 'Cart',
+    }
+});
+
 let navbar = new Vue({
     el: '.navbar',
     data: {
@@ -8,7 +16,7 @@ let navbar = new Vue({
         btnTitle: 'Cart',
         btnLessonsTitle: 'Lessons',
         lessonURL: 'index.html',
-        cart: 'cart.html', 
+        cart: 'cart.html',
     },
     methods: {
         goToCart: function () {
@@ -18,12 +26,13 @@ let navbar = new Vue({
             window.location.href = "index.html";
         }
     }
-})
+});
 
 let displayLessons = new Vue({
     el: '#lessons',
     data: { 
-      addCart: [],
+        addCart: [],
+        buttonTitle: 'Add To Cart',
       lessons: [
         {
             SubjectName: getLessonsData[0].SubjectName,
@@ -109,11 +118,22 @@ let displayLessons = new Vue({
     },
     mounted() { //When the Webpage loads up the cart button should be hidden. 
         document.getElementById("btnCart").style.visibility = "hidden";
+
+        /* These event listeners are used so that when it adds to a cart array it will only add the lesson selected, it won't add multiple times
+        this is the reason why I decided to do it this way. */
         document.getElementById("addToCart0").addEventListener("click", this.addMaths); 
         document.getElementById("addToCart1").addEventListener("click", this.addEnglish); 
+        document.getElementById("addToCart2").addEventListener("click", this.addScience); 
+        document.getElementById("addToCart3").addEventListener("click", this.addCS); 
+        document.getElementById("addToCart4").addEventListener("click", this.addHistory); 
+        document.getElementById("addToCart5").addEventListener("click", this.addGeography); 
+        document.getElementById("addToCart6").addEventListener("click", this.addRE); 
+        document.getElementById("addToCart7").addEventListener("click", this.addPhyicalE); 
+        document.getElementById("addToCart8").addEventListener("click", this.addBusiness); 
+        document.getElementById("addToCart9").addEventListener("click", this.addIT); 
     },
     methods: {
-        addToCart: function (index) {
+        reduceSpace: function(index) {
 
             //Reduce the number of spaces as the user clicks on the add to cart button.    
             this.lessons[index].Space--;
@@ -125,11 +145,9 @@ let displayLessons = new Vue({
             if (this.lessons[0].Space == 0) {
                 document.getElementById("addToCart0").style.visibility = "hidden";
             } 
-
             if (this.lessons[1].Space == 0) {
                 document.getElementById("addToCart1").style.visibility = "hidden";
             } 
-
             if (this.lessons[2].Space == 0) {
                 document.getElementById("addToCart2").style.visibility = "hidden";
             }
@@ -155,15 +173,60 @@ let displayLessons = new Vue({
                 document.getElementById("addToCart9").style.visibility = "hidden";
             }
         },
+        //The functions below are used for adding each of the to an cart array.
         addMaths: function () {
             let cart = this.addCart;
             cart.push(this.lessons[0]);
-            console.log(cart);
+            this.storeCart();
         },
         addEnglish: function () {
             let cart = this.addCart;
             cart.push(this.lessons[1]);
-            console.log(cart);
+            this.storeCart();
         },
+        addScience: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[2]);
+            this.storeCart();
+        },
+        addCS: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[3]);
+            this.storeCart();
+        },
+        addHistory: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[4]);
+            this.storeCart();
+        },
+        addGeography: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[5]);
+            this.storeCart();
+        },
+        addRE: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[6]);
+            this.storeCart();
+        },
+        addPhyicalE: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[7]);
+            this.storeCart();
+        },
+        addBusiness: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[8]);
+            this.storeCart();
+        },
+        addIT: function () {
+            let cart = this.addCart;
+            cart.push(this.lessons[9]);
+            this.storeCart();
+        },
+        storeCart: function () {    //This function is used for storing the lessons into the Local Storage.
+            let cart = this.addCart;
+            localStorage.setItem("Cart", JSON.stringify(cart));
+        }
     }    
 });
