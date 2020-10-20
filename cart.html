@@ -27,6 +27,13 @@
         <button id="btnLessons" v-on:click="goToLessons()">Lessons</button>
     </div>
 
+    <div id="displayCart">
+        <div v-for="(cart, index) in lessons"></div>
+        <div class="cart-details">
+
+        </div>
+    </div>
+
 
 </body>
 <script src="js/application.js"></script>

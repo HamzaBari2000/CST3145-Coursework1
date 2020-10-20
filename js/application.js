@@ -1,4 +1,4 @@
-//Store Data to the Local Storage
+//Get Lessons Data from the Local Storage
 let getLessonsData = JSON.parse(localStorage.getItem("Lessons"));
 
 let header = new Vue({
@@ -33,6 +33,7 @@ let displayLessons = new Vue({
     data: { 
         addCart: [],
         buttonTitle: 'Add To Cart',
+        isHidden: true,
         lessons: [
             {
                 SubjectName: getLessonsData[0].SubjectName,
@@ -227,6 +228,16 @@ let displayLessons = new Vue({
         storeCart: function () {    //This function is used for storing the lessons into the Local Storage.
             let cart = this.addCart;
             localStorage.setItem("Cart", JSON.stringify(cart));
-        }
+        },
     }    
+});
+
+//Get Cart Data from the Local Storage
+let getCartData = JSON.parse(localStorage.getItem("Cart"));
+let displayCart = new Vue({
+    el: '#displayCart',
+    data: {
+    },
+    methods: {
+    }
 });

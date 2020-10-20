@@ -30,7 +30,28 @@ body {
   padding-top: 200px;
 }
 
+#displayCart {
+  padding-left: 600px;
+  padding-top: 200px;
+}
+
 .details {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
+.details {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
+.cart-details {
   background-color: lightgrey;
   width: 300px;
   border: 15px solid green;
