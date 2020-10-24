@@ -16,7 +16,6 @@ let navbar = new Vue({
         btnTitle: 'Cart',
         btnLessonsTitle: 'Lessons',
         lessonURL: 'index.html',
-        cart: 'cart.html',
     },
     methods: {
         goToCart: function () {
@@ -25,7 +24,7 @@ let navbar = new Vue({
         goToLessons: function () {
             window.location.href = "index.html";
         }
-    }
+    },
 });
 
 let displayLessons = new Vue({
@@ -33,7 +32,6 @@ let displayLessons = new Vue({
     data: { 
         addCart: [],
         buttonTitle: 'Add To Cart',
-        isHidden: true,
         lessons: [
             {
                 SubjectName: getLessonsData[0].SubjectName,
@@ -232,12 +230,17 @@ let displayLessons = new Vue({
     }    
 });
 
-//Get Cart Data from the Local Storage
-let getCartData = JSON.parse(localStorage.getItem("Cart"));
+
 let displayCart = new Vue({
     el: '#displayCart',
     data: {
+        ButtonRemove: 'Remove',
+        carts: JSON.parse(localStorage.getItem("Cart")),
     },
     methods: {
-    }
+
+    },
+    mounted() {
+    },
 });
+

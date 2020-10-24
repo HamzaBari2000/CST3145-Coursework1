@@ -28,12 +28,19 @@
     </div>
 
     <div id="displayCart">
-        <div v-for="(cart, index) in lessons"></div>
-        <div class="cart-details">
-
+        <div v-for="(cart, index) in carts">
+            <div id="cart-details">
+                <h1>{{ cart.SubjectName }}</h1>
+                <p>Location: {{ cart.Location }}</p>
+                <p>Price: £{{ cart.Price }}</p>
+                <p>Spaces: {{ cart.Space }}</p>
+                <img v-bind:src="cart.Image" height="60px" width="60px">
+                <br>
+                <br>
+                <button>{{ ButtonRemove }}</button>
+            </div>
         </div>
     </div>
-
 
 </body>
 <script src="js/application.js"></script>

@@ -51,7 +51,7 @@ body {
   margin: 20px;
 }
 
-.cart-details {
+#cart-details {
   background-color: lightgrey;
   width: 300px;
   border: 15px solid green;
