@@ -1,5 +1,93 @@
+//The JSON Data Array For Lessons.
+let lessonsData = [
+    {
+        'SubjectName': 'Maths',
+        'Location': 'London',
+        'Price': 50.00,
+        'Space': 5,
+        'Image': 'img/maths.svg',
+        'ButtonID' : 'addToCart0',
+    },
+    {
+        'SubjectName': 'English',
+        'Location': 'Manchester',
+        'Price': 30.00,
+        'Space': 5,
+        'Image': 'img/english.png',
+        'ButtonID' : 'addToCart1',
+    },
+    {
+        'SubjectName': 'Science',
+        'Location': 'New York',
+        'Price': 75.00,
+        'Space': 5,
+        'Image': 'img/science.png',
+        'ButtonID' : 'addToCart2',
+    },
+    {
+        'SubjectName': 'Computer Science',
+        'Location': 'Birmingham',
+        'Price': 100.00,
+        'Space': 5,
+        'Image': 'img/cs.jpg',
+        'ButtonID' : 'addToCart3',
+    },
+    {
+        'SubjectName': 'History',
+        'Location': 'London',
+        'Price': 85.00,
+        'Space': 5,
+        'Image': 'img/history.png',
+        'ButtonID' : 'addToCart4',
+    },
+    {
+        'SubjectName': 'Geography',
+        'Location': 'New York',
+        'Price': 85.00,
+        'Space': 5,
+        'Image': 'img/geography.png',
+        'ButtonID' : 'addToCart5',
+    },
+    {
+        'SubjectName': 'Religious Education',
+        'Location': 'Leeds',
+        'Price': 80.00,
+        'Space': 5,
+        'Image': 'img/Re.png',
+        'ButtonID' : 'addToCart6',
+    },
+    {
+        'SubjectName': 'Phyical Education',
+        'Location': 'Reading',
+        'Price': 110.00,
+        'Space': 5,
+        'Image': 'img/PhyicalEducation.png',
+        'ButtonID' : 'addToCart7',
+    },
+    {
+        'SubjectName': 'Business',
+        'Location': 'Cape Town',
+        'Price': 145.00,
+        'Space': 5,
+        'Image': 'img/business.png',
+        'ButtonID' : 'addToCart8',
+    },
+    {
+        'SubjectName': 'Information Technology',
+        'Location': 'Amsterdam',
+        'Price': 25.00,
+        'Space': 5,
+        'Image': 'img/IT.png',
+        'ButtonID' : 'addToCart9',
+    },
+];
+
+//Store Data to the Local Storage
+localStorage.setItem("Lessons", JSON.stringify(lessonsData));
+
+
 //Get Lessons Data from the Local Storage
-let getLessonsData = JSON.parse(localStorage.getItem("Lessons"));
+//let getLessonsData = JSON.parse(localStorage.getItem("Lessons"));
 
 let header = new Vue({
     el: '#header',
@@ -32,96 +120,47 @@ let displayLessons = new Vue({
     data: { 
         addCart: [],
         buttonTitle: 'Add To Cart',
-        lessons: [
-            {
-                SubjectName: getLessonsData[0].SubjectName,
-                Location: getLessonsData[0].Location,
-                Price: getLessonsData[0].Price,
-                Space: getLessonsData[0].Space,
-                Image: getLessonsData[0].Image,
-                ButtonID: 'addToCart0'
-            },
-            {
-                SubjectName: getLessonsData[1].SubjectName,
-                Location: getLessonsData[1].Location,
-                Price: getLessonsData[1].Price,
-                Space: getLessonsData[1].Space,
-                Image: getLessonsData[1].Image,
-                ButtonID: 'addToCart1'
-            },
-            {
-                SubjectName: getLessonsData[2].SubjectName,
-                Location: getLessonsData[2].Location,
-                Price: getLessonsData[2].Price,
-                Space: getLessonsData[2].Space,
-                Image: getLessonsData[2].Image,
-                ButtonID: 'addToCart2'
-            },
-            {
-                SubjectName: getLessonsData[3].SubjectName,
-                Location: getLessonsData[3].Location,
-                Price: getLessonsData[3].Price,
-                Space: getLessonsData[3].Space,
-                Image: getLessonsData[3].Image,
-                ButtonID: 'addToCart3'
-            },
-            {
-                SubjectName: getLessonsData[4].SubjectName,
-                Location: getLessonsData[4].Location,
-                Price: getLessonsData[4].Price,
-                Space: getLessonsData[4].Space,
-                Image: getLessonsData[4].Image,
-                ButtonID: 'addToCart4'
-            },
-            {
-                SubjectName: getLessonsData[5].SubjectName,
-                Location: getLessonsData[5].Location,
-                Price: getLessonsData[5].Price,
-                Space: getLessonsData[5].Space,
-                Image: getLessonsData[5].Image,
-                ButtonID: 'addToCart5'
-            },
-            {
-                SubjectName: getLessonsData[6].SubjectName,
-                Location: getLessonsData[6].Location,
-                Price: getLessonsData[6].Price,
-                Space: getLessonsData[6].Space,
-                Image: getLessonsData[6].Image,
-                ButtonID: 'addToCart6'
-            },
-            {
-                SubjectName: getLessonsData[7].SubjectName,
-                Location: getLessonsData[7].Location,
-                Price: getLessonsData[7].Price,
-                Space: getLessonsData[7].Space,
-                Image: getLessonsData[7].Image,
-                ButtonID: 'addToCart7'
-            },
-            {
-                SubjectName: getLessonsData[8].SubjectName,
-                Location: getLessonsData[8].Location,
-                Price: getLessonsData[8].Price,
-                Space: getLessonsData[8].Space,
-                Image: getLessonsData[8].Image,
-                ButtonID: 'addToCart8'
-            },
-            {
-                SubjectName: getLessonsData[9].SubjectName,
-                Location: getLessonsData[9].Location,
-                Price: getLessonsData[9].Price,
-                Space: getLessonsData[9].Space,
-                Image: getLessonsData[9].Image,
-                ButtonID: 'addToCart9'
-            },
-        ],
+        lessons: JSON.parse(localStorage.getItem("Lessons")),
         buttons: [
             {
                 radioButtonID: 'rb1',
                 name: 'sorting',
+                label: 'Sort Subjects Acending',
             },
             {
                 radioButtonID: 'rb2',
                 name: 'sorting',
+                label: 'Sort Subjects Decending',
+            },
+            {
+                radioButtonID: 'rb3',
+                name: 'sorting',
+                label: 'Sort Price Acending',
+            },
+            {
+                radioButtonID: 'rb4',
+                name: 'sorting',
+                label: 'Sort Price Decending',
+            },
+            {
+                radioButtonID: 'rb5',
+                name: 'sorting',
+                label: 'Sort Location Acending',
+            },
+            {
+                radioButtonID: 'rb6',
+                name: 'sorting',
+                label: 'Sort Location Decending',
+            },
+            {
+                radioButtonID: 'rb7',
+                name: 'sorting',
+                label: 'Sort Availability Acending',
+            },
+            {
+                radioButtonID: 'rb8',
+                name: 'sorting',
+                label: 'Sort Availability Decending',
             },
         ],
     },
@@ -140,6 +179,9 @@ let displayLessons = new Vue({
         document.getElementById("addToCart7").addEventListener("click", this.addPhyicalE); 
         document.getElementById("addToCart8").addEventListener("click", this.addBusiness); 
         document.getElementById("addToCart9").addEventListener("click", this.addIT); 
+
+        //These event listeners are used for the sorting methods.
+        document.getElementById("rb1").addEventListener("click", this.sortSubjectAcedning); 
     },
     methods: {
         reduceSpace: function(index) {
@@ -240,6 +282,16 @@ let displayLessons = new Vue({
             let cart = this.addCart;
             localStorage.setItem("Cart", JSON.stringify(cart));
         },
+        sortSubjectAcedning: function() {
+            this.lessons.sort((v1, v2) => {
+                if (v1.SubjectName < v2.SubjectName) {
+                    return -1; 
+                } else if (v1.SubjectName > v2.SubjectName){
+                    return 1;
+                }
+            });
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
     }    
 });
 
@@ -333,11 +385,3 @@ function sortAvailabilityDecending() {
         Number(b.Space) - Number(a.Space)
     ));
 }
-
-var app = new Vue({
-    el:"#app",
-    data:{
-      images:[{imgId:1},{imgId:2},{imgId:3}],
-      profileImg:2,
-    }
-  })

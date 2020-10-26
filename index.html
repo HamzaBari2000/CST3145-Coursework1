@@ -31,6 +31,7 @@
         <div id="sortingLessons">
             <div v-for="(button, index) in buttons">
                 <input type="radio" v-bind:name="button.name" v-bind:id="button.radioButtonID">
+                <label>{{ button.label }}</label>
             </div>
         </div>
         <div v-for="(lesson, index) in lessons">
