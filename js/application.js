@@ -113,7 +113,17 @@ let displayLessons = new Vue({
                 Image: getLessonsData[9].Image,
                 ButtonID: 'addToCart9'
             },
-        ]
+        ],
+        buttons: [
+            {
+                radioButtonID: 'rb1',
+                name: 'sorting',
+            },
+            {
+                radioButtonID: 'rb2',
+                name: 'sorting',
+            },
+        ],
     },
     mounted() { //When the Webpage loads up the cart button should be hidden. 
         document.getElementById("btnCart").style.visibility = "hidden";
@@ -171,6 +181,9 @@ let displayLessons = new Vue({
             if (this.lessons[9].Space == 0) {
                 document.getElementById("addToCart9").style.visibility = "hidden";
             }
+
+            //Updating the Lesson Spaces
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
         },
         //The functions below are used for adding each of the to an cart array.
         addMaths: function () {
@@ -237,10 +250,94 @@ let displayCart = new Vue({
         ButtonRemove: 'Remove',
         carts: JSON.parse(localStorage.getItem("Cart")),
     },
-    methods: {
-
-    },
     mounted() {
+    },
+    methods: {
+        removeLesson: function (index) {
+            this.carts.splice(index, 1);
+            localStorage.setItem('Cart', JSON.stringify(this.carts));
+        },
     },
 });
 
+//Sorting Functions
+
+function sortSubjectAcedning() {
+    console.log(getLessonsData.sort((a, b) => {
+        if (a.SubjectName < b.SubjectName) {
+            return -1; 
+        } else if (a.SubjectName > b.SubjectName){
+            return 1;
+        } else {
+            return 0;
+        }
+    }));
+}
+
+function sortSubjectDecending() {
+    console.log(getLessonsData.sort((a, b) => {
+        if (a.SubjectName < b.SubjectName) {
+            return 1; 
+        } else if (a.SubjectName > b.SubjectName){
+            return -1;
+        } else {
+            return 0;
+        }
+    }));
+}
+
+function sortLocationAcedning() {
+    console.log(getLessonsData.sort((a, b) => {
+        if (a.Location < b.Location) {
+            return -1; 
+        } else if (a.Location > b.Location){
+            return 1;
+        } else {
+            return 0;
+        }
+    }));
+}
+
+function sortLocationDecending() {
+    console.log(getLessonsData.sort((a, b) => {
+        if (a.Location < b.Location) {
+            return 1; 
+        } else if (a.Location > b.Location){
+            return -1;
+        } else {
+            return 0;
+        }
+    }));
+}
+
+function sortPriceAcedning() {
+    console.log(getLessonsData.sort((a, b) => 
+        Number(a.Price) - Number(b.Price)
+    ));
+}
+
+function sortPriceDecending() {
+    console.log(getLessonsData.sort((a, b) => 
+        Number(b.Price) - Number(a.Price)
+    ));
+}
+
+function sortAvailabilityAcedning() {
+    console.log(getLessonsData.sort((a, b) => 
+        Number(a.Space) - Number(b.Space)
+    ));
+}
+
+function sortAvailabilityDecending() {
+    console.log(getLessonsData.sort((a, b) => 
+        Number(b.Space) - Number(a.Space)
+    ));
+}
+
+var app = new Vue({
+    el:"#app",
+    data:{
+      images:[{imgId:1},{imgId:2},{imgId:3}],
+      profileImg:2,
+    }
+  })

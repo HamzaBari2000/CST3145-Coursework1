@@ -27,8 +27,12 @@
         <button id="btnCart" v-on:click="goToCart()">{{ btnTitle }}</button>
     </div>
 
-
     <div id="lessons">
+        <div id="sortingLessons">
+            <div v-for="(button, index) in buttons">
+                <input type="radio" v-bind:name="button.name" v-bind:id="button.radioButtonID">
+            </div>
+        </div>
         <div v-for="(lesson, index) in lessons">
             <div class="details">
                 <h1>{{ lesson.SubjectName }}</h1>

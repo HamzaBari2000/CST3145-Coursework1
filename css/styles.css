@@ -27,12 +27,26 @@ body {
 
 #lessons {
   padding-left: 600px;
-  padding-top: 200px;
+  padding-top: 180px;
+}
+
+#sortingLessons {
+  padding-right: 100px;
+  padding-bottom: 50px;
 }
 
 #displayCart {
   padding-left: 600px;
   padding-top: 200px;
+}
+
+#heading1{
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+#heading2{
+  padding-left: 100px;
 }
 
 .details {
