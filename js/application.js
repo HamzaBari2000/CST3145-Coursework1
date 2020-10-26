@@ -182,6 +182,9 @@ let displayLessons = new Vue({
 
         //These event listeners are used for the sorting methods.
         document.getElementById("rb1").addEventListener("click", this.sortSubjectAcedning); 
+        document.getElementById("rb2").addEventListener("click", this.sortSubjectDecending); 
+        document.getElementById("rb5").addEventListener("click", this.sortLocationAcedning); 
+        document.getElementById("rb6").addEventListener("click", this.sortLocationDecending); 
     },
     methods: {
         reduceSpace: function(index) {
@@ -286,8 +289,30 @@ let displayLessons = new Vue({
             this.lessons.sort((v1, v2) => {
                 if (v1.SubjectName < v2.SubjectName) {
                     return -1; 
-                } else if (v1.SubjectName > v2.SubjectName){
-                    return 1;
+                } 
+            });
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
+        sortSubjectDecending: function() {
+            this.lessons.sort((v1, v2) => {
+               if (v1.SubjectName > v2.SubjectName){
+                    return -1;
+                }
+            });
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
+        sortLocationAcedning: function() {
+            this.lessons.sort((v1, v2) => {
+                if (v1.Location < v2.Location) {
+                    return -1; 
+                } 
+            });
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
+        sortLocationDecending: function() {
+            this.lessons.sort((v1, v2) => {
+               if (v1.Location > v2.Location){
+                    return -1;
                 }
             });
             localStorage.setItem("Lessons", JSON.stringify(this.lessons));
@@ -313,54 +338,6 @@ let displayCart = new Vue({
 });
 
 //Sorting Functions
-
-function sortSubjectAcedning() {
-    console.log(getLessonsData.sort((a, b) => {
-        if (a.SubjectName < b.SubjectName) {
-            return -1; 
-        } else if (a.SubjectName > b.SubjectName){
-            return 1;
-        } else {
-            return 0;
-        }
-    }));
-}
-
-function sortSubjectDecending() {
-    console.log(getLessonsData.sort((a, b) => {
-        if (a.SubjectName < b.SubjectName) {
-            return 1; 
-        } else if (a.SubjectName > b.SubjectName){
-            return -1;
-        } else {
-            return 0;
-        }
-    }));
-}
-
-function sortLocationAcedning() {
-    console.log(getLessonsData.sort((a, b) => {
-        if (a.Location < b.Location) {
-            return -1; 
-        } else if (a.Location > b.Location){
-            return 1;
-        } else {
-            return 0;
-        }
-    }));
-}
-
-function sortLocationDecending() {
-    console.log(getLessonsData.sort((a, b) => {
-        if (a.Location < b.Location) {
-            return 1; 
-        } else if (a.Location > b.Location){
-            return -1;
-        } else {
-            return 0;
-        }
-    }));
-}
 
 function sortPriceAcedning() {
     console.log(getLessonsData.sort((a, b) => 
