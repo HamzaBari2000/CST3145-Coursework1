@@ -183,8 +183,12 @@ let displayLessons = new Vue({
         //These event listeners are used for the sorting methods.
         document.getElementById("rb1").addEventListener("click", this.sortSubjectAcedning); 
         document.getElementById("rb2").addEventListener("click", this.sortSubjectDecending); 
+        document.getElementById("rb3").addEventListener("click", this.sortPriceAcedning); 
+        document.getElementById("rb4").addEventListener("click", this.sortPriceDecending); 
         document.getElementById("rb5").addEventListener("click", this.sortLocationAcedning); 
         document.getElementById("rb6").addEventListener("click", this.sortLocationDecending); 
+        document.getElementById("rb7").addEventListener("click", this.sortAvailabilityAcedning); 
+        document.getElementById("rb8").addEventListener("click", this.sortAvailabilityDecending); 
     },
     methods: {
         reduceSpace: function(index) {
@@ -317,9 +321,32 @@ let displayLessons = new Vue({
             });
             localStorage.setItem("Lessons", JSON.stringify(this.lessons));
         },
+        sortPriceAcedning: function() {
+            this.lessons.sort((v1, v2) => 
+                Number(v1.Price) - Number(v2.Price)
+            );
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
+        sortPriceDecending: function() {
+            this.lessons.sort((v1, v2) => 
+                Number(v2.Price) - Number(v1.Price)
+            );
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
+        sortAvailabilityAcedning: function() {
+            this.lessons.sort((v1, v2) => 
+                Number(v1.Space) - Number(v2.Space)
+            );
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
+        sortAvailabilityDecending: function() {
+            this.lessons.sort((v1, v2) => 
+                Number(v2.Space) - Number(v1.Space)
+            );
+            localStorage.setItem("Lessons", JSON.stringify(this.lessons));
+        },
     }    
 });
-
 
 let displayCart = new Vue({
     el: '#displayCart',
@@ -336,29 +363,3 @@ let displayCart = new Vue({
         },
     },
 });
-
-//Sorting Functions
-
-function sortPriceAcedning() {
-    console.log(getLessonsData.sort((a, b) => 
-        Number(a.Price) - Number(b.Price)
-    ));
-}
-
-function sortPriceDecending() {
-    console.log(getLessonsData.sort((a, b) => 
-        Number(b.Price) - Number(a.Price)
-    ));
-}
-
-function sortAvailabilityAcedning() {
-    console.log(getLessonsData.sort((a, b) => 
-        Number(a.Space) - Number(b.Space)
-    ));
-}
-
-function sortAvailabilityDecending() {
-    console.log(getLessonsData.sort((a, b) => 
-        Number(b.Space) - Number(a.Space)
-    ));
-}
