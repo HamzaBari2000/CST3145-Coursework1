@@ -162,6 +162,11 @@ let displayLessons = new Vue({
                 name: 'sorting',
                 label: 'Sort Availability Decending',
             },
+            {
+                radioButtonID: 'rb9',
+                name: 'sorting',
+                label: 'Unsort',
+            },
         ],
     },
     mounted() { //When the Webpage loads up the cart button should be hidden. 
@@ -189,6 +194,7 @@ let displayLessons = new Vue({
         document.getElementById("rb6").addEventListener("click", this.sortLocationDecending); 
         document.getElementById("rb7").addEventListener("click", this.sortAvailabilityAcedning); 
         document.getElementById("rb8").addEventListener("click", this.sortAvailabilityDecending); 
+        document.getElementById("rb9").addEventListener("click", this.unsort); 
     },
     methods: {
         reduceSpace: function(index) {
@@ -345,6 +351,9 @@ let displayLessons = new Vue({
             );
             localStorage.setItem("Lessons", JSON.stringify(this.lessons));
         },
+        unsort: function() {
+            location.reload();
+        }
     }    
 });
 
@@ -354,12 +363,11 @@ let displayCart = new Vue({
         ButtonRemove: 'Remove',
         carts: JSON.parse(localStorage.getItem("Cart")),
     },
-    mounted() {
-    },
     methods: {
         removeLesson: function (index) {
-            this.carts.splice(index, 1);
-            localStorage.setItem('Cart', JSON.stringify(this.carts));
+            let filteredItems = this.carts.filter(cart => cart !== index)
+            location.reload();
+            localStorage.setItem('Cart', JSON.stringify(filteredItems));
         },
     },
 });
